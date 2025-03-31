@@ -6,5 +6,6 @@ RUN apt-get update \
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.2/install.sh | bash 
 ENV NVM_DIR=/root/.nvm
 RUN bash -c "source $NVM_DIR/nvm.sh && nvm install 22"
+COPY settings.xml /usr/share/maven/conf/settings.xml
 ENTRYPOINT ["bash", "-c", "source $NVM_DIR/nvm.sh && exec \"$@\"", "--"]
 CMD ["/bin/bash"]
